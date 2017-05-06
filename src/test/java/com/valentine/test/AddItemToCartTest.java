@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class AddItemToCartTest {
 	private WebDriver driver;
@@ -35,6 +36,23 @@ public class AddItemToCartTest {
 		Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
 				"Incorrect URL after click on 'Add to Cart' button");
 	}
+	
+	/*//For Demo puproses only
+	@Test(dependsOnMethods = "testAddToCartButtonOnPopupRedirectsToCartPage")
+	public void testMultipleConditions() {
+		String actualPrice = driver.findElement(By.id("id1")).getText();
+		String actualTitle = driver.findElement(By.id("title")).getText();
+		String actualDescription = driver.findElement(By.id("desc")).getText();
+		
+		SoftAssert soft = new SoftAssert();
+		soft.assertEquals(actualPrice, "0.77", "Incorrect price");
+		soft.assertEquals(actualTitle, "Hello", "Incorrect title");
+		
+		soft.assertAll();
+	}
+	*/
+	
+	
 
 	@AfterClass
 	public void tearDown() {
