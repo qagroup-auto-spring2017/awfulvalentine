@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -19,8 +18,9 @@ public class ContinueShoppingFromYourCartTest {
 	@BeforeClass
 	public void setup() {
 		driver = Browser.open();
-		
 		driver.get("http://awful-valentine.com/");
+
+		// AwfulValentine.openHomePage();
 
 		driver.findElement(By.cssSelector("[href='#et-offer-post-30']")).click();
 		WebElement addToCartPopup = driver.findElement(By.id("fancybox-wrap"));
@@ -40,8 +40,7 @@ public class ContinueShoppingFromYourCartTest {
 	public void testAddingSecondItemToShoppingCart() {
 		waitFor(2000);
 		WebElement cartButton = driver.findElement(By.cssSelector("[href='#et-entry-post-21']"));
-		JavascriptExecutor.class.cast(driver).executeScript("arguments[0].scrollIntoView(true)",
-				cartButton);
+		JavascriptExecutor.class.cast(driver).executeScript("arguments[0].scrollIntoView(true)", cartButton);
 		waitFor(2000);
 		cartButton.click();
 
