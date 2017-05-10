@@ -26,12 +26,13 @@ public class ContinueShoppingFromYourCartTest {
 		WebElement addToCartPopup = driver.findElement(By.id("fancybox-wrap"));
 		waitFor(1000);
 		driver.findElement(By.id("addToCart_6_2")).click();
+		waitFor(3000);
 	}
 
 	@Test
 	public void testContinueShoppingButtonRedirectsToHomePage() {
 		driver.findElement(By.id("continueShopping")).click();
-
+		waitFor(3000);
 		Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/");
 	}
 
@@ -47,7 +48,7 @@ public class ContinueShoppingFromYourCartTest {
 		WebElement addToCartPopup = driver.findElement(By.id("fancybox-wrap"));
 		waitFor(1000);
 		driver.findElement(By.id("addToCart_3_2")).click();
-
+		waitFor(3000);
 		Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
 				"Incorrect URL after adding second item");
 

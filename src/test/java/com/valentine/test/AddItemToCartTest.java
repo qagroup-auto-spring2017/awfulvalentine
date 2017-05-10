@@ -33,7 +33,7 @@ public class AddItemToCartTest {
 	public void testAddToCartButtonOnPopupRedirectsToCartPage() {
 		waitFor(3000);
 		driver.findElement(By.id("addToCart_6_2")).click();
-
+		waitFor(3000);
 		Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
 				"Incorrect URL after click on 'Add to Cart' button");
 	}
