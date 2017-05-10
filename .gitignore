@@ -5,3 +5,5 @@
 bin
 test-output/
 target/
+chromedriver.exe
+chromedriver
