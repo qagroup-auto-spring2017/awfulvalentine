@@ -5,3 +5,7 @@
 bin
 test-output/
 target/
+chromedriver.exe
+chromedriver
+geckodriver.exe
+geckodriver

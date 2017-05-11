@@ -9,13 +9,14 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.valentine.tools.Browser;
+
 public class AddItemToCartTest {
 	private WebDriver driver;
 
 	@Test
 	public void testTheAddCartButtonOpensPopup() {
-		System.setProperty("webdriver.chrome.driver", "E:\\lib\\chromedriver_win32\\chromedriver.exe");
-		driver = new ChromeDriver();
+		driver = Browser.open();
 		driver.get("http://awful-valentine.com/");
 
 		driver.findElement(By.cssSelector("[href='#et-offer-post-30']")).click();
@@ -32,7 +33,7 @@ public class AddItemToCartTest {
 	public void testAddToCartButtonOnPopupRedirectsToCartPage() {
 		waitFor(3000);
 		driver.findElement(By.id("addToCart_6_2")).click();
-
+		waitFor(3000);
 		Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
 				"Incorrect URL after click on 'Add to Cart' button");
 	}
