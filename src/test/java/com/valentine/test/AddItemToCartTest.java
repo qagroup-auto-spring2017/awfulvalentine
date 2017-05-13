@@ -10,6 +10,11 @@ import com.valentine.app.AwfulValentine;
 import com.valentine.app.HomePage;
 import com.valentine.app.ShoppingCartPage;
 
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Stories;
+
+@Features("Shopping")
+@Stories("Add Item to Cart")
 public class AddItemToCartTest {
 	private HomePage onHomePage;
 	private ShoppingCartPage onShoppingCartPage;
@@ -28,7 +33,7 @@ public class AddItemToCartTest {
 	@Test(dependsOnMethods = "testTheAddCartButtonOpensPopup")
 	public void testAddToCartButtonOnPopupRedirectsToCartPage() {
 		onShoppingCartPage = onHomePage.clickAddToCartButtonOnPopup();
-		assertEquals(onShoppingCartPage.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
+		assertEquals(onShoppingCartPage.getCurrentUrl(), "http://awful-valentine.com/store/card/",
 				"Incorrect URL after click on 'Add to Cart' button");
 	}
 
