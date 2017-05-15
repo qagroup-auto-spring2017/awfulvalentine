@@ -9,15 +9,21 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.valentine.app.AwfulValentine;
+import com.valentine.app.HomePage;
 import com.valentine.tools.Browser;
 
 public class AddItemToCartTest {
 	private WebDriver driver;
+	private HomePage homePage;
 
 	@Test
 	public void testTheAddCartButtonOpensPopup() {
-		driver = Browser.open();
-		driver.get("http://awful-valentine.com/");
+		/*driver = Browser.open();
+		driver.get("http://awful-valentine.com/");*/
+		
+		homePage = AwfulValentine.openHomePage();
+		
 
 		driver.findElement(By.cssSelector("[href='#et-offer-post-30']")).click();
 		WebElement addToCartPopup = driver.findElement(By.id("fancybox-wrap"));
