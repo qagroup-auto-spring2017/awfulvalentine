@@ -8,15 +8,15 @@ import org.openqa.selenium.safari.SafariDriver;
 public class Browser {
 
 	public static WebDriver open() {
-//		System.setProperty("browser", "firefox");
+		// коли треба запустити браузер зпід Eclipse:
+		// System.setProperty("browser", "firefox");
 		// System.setProperty("webdriver.chrome.driver",
 		// "E:\\lib\\chromedriver_win32\\chromedriver.exe");
-		
-		System.setProperty("webdriver.chrome.driver",
-				"chromedriver.exe");
-		
+
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+
 		String browserName = System.getProperty("browser");
-		
+
 		if (browserName == null || "chrome".equals(browserName))
 			return startChromeDriver();
 		else if ("firefox".equals(browserName))
