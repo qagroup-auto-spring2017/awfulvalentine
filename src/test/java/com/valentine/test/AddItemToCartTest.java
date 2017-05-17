@@ -32,8 +32,9 @@ public class AddItemToCartTest {
 		testItem = onHomePage.getSpecialOffer(randomIndex);
 
 		onHomePage.clickAddToCartOnSpecialOffer(randomIndex);
-		
-//		onHomePage.clickAddToCartOnSpecialOffer(testItem);
+
+		// onHomePage.clickAddToCartOnSpecialOffer(testItem);
+		onHomePage.clickAddToCartOnSpecialOffer(1);
 
 		assertTrue(onHomePage.isAddToCartPopupShown(), "'Add to cart' Popup did not appear.");
 		//
@@ -45,7 +46,8 @@ public class AddItemToCartTest {
 		// assertEquals(productPrice, testItem.getUnitPrice(), "Incorrect
 		// product price on 'Add to Cart' popup");
 
-//		assertEquals(onHomePage.getProductInfoFromPopup(), testItem, "Incorrect data on popup");
+		// assertEquals(onHomePage.getProductInfoFromPopup(), testItem,
+		// "Incorrect data on popup");
 		productsShouldBeEqual(onHomePage.getProductInfoFromPopup(), testItem);
 	}
 

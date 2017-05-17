@@ -114,4 +114,5 @@ public class HomePage {
 	public ProductDataModel getProductInfoFromPopup() {
 		return new ProductDataModel(getPopupProductTitle() + " 2", getPopupProductPrice());
 	}
+
 }

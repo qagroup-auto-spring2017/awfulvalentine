@@ -3,18 +3,21 @@ package com.valentine.ViraTarkovska.test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+/*import org.openqa.selenium.chrome.ChromeDriver;*/
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
+
+import com.valentine.tools.Browser;
 
 public class AletrsForYourNameYourEmailTest {
 	private WebDriver driver;
 
 	@Test
 	public void testAletrsForYourNameYourEmail() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-		driver = new ChromeDriver();
+/*		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		driver = new ChromeDriver();*/
+		driver = Browser.open();
 		driver.get("http://awful-valentine.com/contact-us/");
 
 		driver.findElement(By.cssSelector("input[value='Send']")).click();
