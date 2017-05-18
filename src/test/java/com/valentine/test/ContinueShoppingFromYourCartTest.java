@@ -33,7 +33,7 @@ public class ContinueShoppingFromYourCartTest {
 	public void testAddingSecondItemToShoppingCart() {
 		onShoppingCartPage = onHomePage.addToCartRecentProduct(4);
 
-		assertEquals(onShoppingCartPage.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
+		assertEquals(onShoppingCartPage.getCurrentUrl(), "http://awful-valentine.com/store/card/",
 				"Incorrect URL after adding second item");
 
 		String shoppingCartSummary = onShoppingCartPage.getSummary();
