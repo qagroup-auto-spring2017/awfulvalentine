@@ -16,6 +16,7 @@ public class AwfulValentine {
 	@Step("Open Home Page by URL: " + BASE_URL)
 	public static HomePage openHomePage() {
 		driver = Browser.open();
+		driver.manage().window().maximize();
 		driver.get(BASE_URL);
 		return new HomePage(driver);
 	}
@@ -23,6 +24,7 @@ public class AwfulValentine {
 	@Step("Open ContactUS Page by URL: " + CONTACT_US_URL)
 	public static ContactUsPage openContactUsPage() {
 		driver = Browser.open();
+		driver.manage().window().maximize();
 		driver.get(CONTACT_US_URL);
 		return new ContactUsPage(driver);
 	}
