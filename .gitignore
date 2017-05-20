@@ -9,3 +9,5 @@ chromedriver.exe
 chromedriver
 geckodriver.exe
 geckodriver
+*/**/*.zip
+chromedriver_mac64.zip
