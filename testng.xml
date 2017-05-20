@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression" preserve-order="true">
+
+	<test name="Valentine tests" preserve-order="true">
+		<classes>
+			<class name="com.valentine.test.AddItemToCartTest"></class>
+			<class name="com.valentine.test.ContinueShoppingFromYourCartTest"></class>
+		</classes>
+	</test>
+
+	<test name="Vira's valentine test">
+		<packages>
+			<package name="*/ViraTarkovska"></package>
+		</packages>
+	</test>
+
+
+</suite>

@@ -33,21 +33,9 @@ public class AddItemToCartTest {
 
 		onHomePage.clickAddToCartOnSpecialOffer(randomIndex);
 
-		// onHomePage.clickAddToCartOnSpecialOffer(testItem);
-		onHomePage.clickAddToCartOnSpecialOffer(1);
 
 		assertTrue(onHomePage.isAddToCartPopupShown(), "'Add to cart' Popup did not appear.");
-		//
-		// String productTitle = onHomePage.getPopupProductTitle();
-		// double productPrice = onHomePage.getPopupProductPrice();
-		//
-		// assertEquals(productTitle, testItem.getTitle(), "Incorrect product
-		// title on 'Add to Cart' popup");
-		// assertEquals(productPrice, testItem.getUnitPrice(), "Incorrect
-		// product price on 'Add to Cart' popup");
 
-		// assertEquals(onHomePage.getProductInfoFromPopup(), testItem,
-		// "Incorrect data on popup");
 		productsShouldBeEqual(onHomePage.getProductInfoFromPopup(), testItem);
 	}
 

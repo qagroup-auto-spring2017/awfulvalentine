@@ -11,6 +11,11 @@ import com.valentine.app.AwfulValentine;
 import com.valentine.app.HomePage;
 import com.valentine.app.ShoppingCartPage;
 
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Stories;
+
+@Features("Shopping")
+@Stories("Continue Shopping from Cart page")
 public class ContinueShoppingFromYourCartTest {
 
 	private HomePage onHomePage;

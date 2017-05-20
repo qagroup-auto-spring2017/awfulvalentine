@@ -112,7 +112,7 @@ public class HomePage {
 
 	@Step("Read Product Info from Popup")
 	public ProductDataModel getProductInfoFromPopup() {
-		return new ProductDataModel(getPopupProductTitle() + " 2", getPopupProductPrice());
+		return new ProductDataModel(getPopupProductTitle(), getPopupProductPrice());
 	}
 
 }
