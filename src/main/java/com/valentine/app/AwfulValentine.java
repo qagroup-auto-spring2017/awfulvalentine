@@ -18,7 +18,9 @@ public class AwfulValentine {
 	@Step("Open Home Page by URL: " + BASE_URL)
 	public static HomePage openHomePage() {
 		driver = Browser.open();
-		driver.manage().window().maximize();
+		if (!"android".equals(System.getProperty("browser"))) {
+			driver.manage().window().maximize();
+		}
 		driver.get(BASE_URL);
 		return new HomePage(driver);
 	}
@@ -26,7 +28,7 @@ public class AwfulValentine {
 	@Step("Close Browser")
 	public static void close() {
 		if (driver != null)
-			driver.close();
+			driver.quit();
 		driver = null;
 	}
 

@@ -109,6 +109,13 @@
 			<version>0.13</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+		<dependency>
+			<groupId>io.appium</groupId>
+			<artifactId>java-client</artifactId>
+			<version>5.0.0-BETA8</version>
+		</dependency>
+
 
 	</dependencies>
 

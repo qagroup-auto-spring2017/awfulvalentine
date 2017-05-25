@@ -9,11 +9,11 @@
 		</classes>
 	</test>
 
-	<test name="Vira's valentine test">
-		<packages>
-			<package name="*/ViraTarkovska"></package>
-		</packages>
-	</test>
+<!-- 	<test name="Vira's valentine test"> -->
+<!-- 		<packages> -->
+<!-- 			<package name="*/ViraTarkovska"></package> -->
+<!-- 		</packages> -->
+<!-- 	</test> -->
 
 
 </suite>

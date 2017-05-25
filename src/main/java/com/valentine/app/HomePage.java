@@ -4,6 +4,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.urlToBe;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -28,12 +29,27 @@ public class HomePage {
 	@FindBy(id = "fancybox-wrap")
 	private WebElement addToCartPopup;
 
+	@FindBy(css = ".off.tappable")
+	private WebElement desktopButton;
+
 	private WebDriver driver;
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		new WebDriverWait(driver, 10).until(urlToBe("http://awful-valentine.com/"));
 		PageFactory.initElements(driver, this);
+
+		if ("android".equals(System.getProperty("browser"))) {
+			switchToDesktopVersion();
+		}
+	}
+
+	private void switchToDesktopVersion() {
+		try {
+			desktopButton.click();
+		} catch (NoSuchElementException e) {
+//
+		}
 	}
 
 	public ShoppingCartPage addToCartSpecialOffer(int position) {
