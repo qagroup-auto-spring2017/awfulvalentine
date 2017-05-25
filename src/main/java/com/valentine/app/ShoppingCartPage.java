@@ -2,7 +2,7 @@ package com.valentine.app;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.urlContains;
 
-import org.openqa.selenium.By;
+//import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

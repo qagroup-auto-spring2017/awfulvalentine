@@ -30,7 +30,7 @@ public class CodeDropdownChapter3OpensTest {
 		 */
 		onHomePage = AwfulValentine.openHomePage();
 
-		onHomePage.hoverCodeInMainMenuClickOnCode();
+		onHomePage.hoverCodeInMainMenuClickOnChapter3();
 		// Hover
 //		Actions actions = new Actions(driver);
 //		WebElement ñodeInMainMenu = driver.findElement(By.cssSelector("#top-menu>li:nth-child(2)"));

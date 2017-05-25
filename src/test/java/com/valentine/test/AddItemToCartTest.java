@@ -39,7 +39,7 @@ public class AddItemToCartTest {
 		onHomePage.clickAddToCartOnSpecialOffer(randomIndex);
 
 		// onHomePage.clickAddToCartOnSpecialOffer(testItem);
-		onHomePage.clickAddToCartOnSpecialOffer(1);
+		// onHomePage.clickAddToCartOnSpecialOffer(1);
 
 		assertTrue(onHomePage.isAddToCartPopupShown(), "'Add to cart' Popup did not appear.");
 

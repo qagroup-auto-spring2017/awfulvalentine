@@ -11,6 +11,11 @@ import com.valentine.app.AwfulValentine;
 import com.valentine.app.HomePage;
 import com.valentine.app.ShoppingCartPage;
 
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Stories;
+
+@Features("Shopping")
+@Stories("Continue Shopping from Cart page")
 public class ContinueShoppingFromYourCartTest {
 
 	private HomePage onHomePage;
@@ -33,7 +38,7 @@ public class ContinueShoppingFromYourCartTest {
 	public void testAddingSecondItemToShoppingCart() {
 		onShoppingCartPage = onHomePage.addToCartRecentProduct(4);
 
-		assertEquals(onShoppingCartPage.getCurrentUrl(), "http://awful-valentine.com/store/card/",
+		assertEquals(onShoppingCartPage.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
 				"Incorrect URL after adding second item");
 
 		String shoppingCartSummary = onShoppingCartPage.getSummary();

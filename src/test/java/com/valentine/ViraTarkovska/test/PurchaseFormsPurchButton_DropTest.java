@@ -51,7 +51,7 @@ public class PurchaseFormsPurchButton_DropTest {
 //		Thread.sleep(1000);
 		onHomePage.waitNotificationAboutFillingForm();
 		
-		assertEquals(onHomePage.notificationAboutFillingForm.getText(), "Please fill the form.", "Text in notification is incorrect: ");
+		assertEquals(onHomePage.compareNotificationAboutFillingForm(), "Please fill the form.", "Text in notification is incorrect: ");
 	}
 	
 	@AfterClass

@@ -131,7 +131,8 @@ public class HomePage {
 		return driver.getCurrentUrl();
 	}
 
-	public void hoverCodeInMainMenuClickOnCode() {
+	@Step("Hover 'Code' item in header main menu and click on 'Chapter 3'")
+	public void hoverCodeInMainMenuClickOnChapter3() {
 		Actions actions = new Actions(driver);
 		actions.moveToElement(ñodeInMainMenu);
 
@@ -139,10 +140,13 @@ public class HomePage {
 		actions.click().build().perform();
 	}
 
+	@Step("Read current URL 'Chapter3' page")
+	@Attachment("URL")
 	public String getCurrentUrlChapter3() {
 		return driver.getCurrentUrl();
 	}
 
+	@Step("Hover 'Purchase Forms' item in header main menu and click on '3rd party links'")
 	public void hoverMainMenuPurchaseFormsClickThirdPartyLinks() {
 		Actions actions = new Actions(driver);
 		actions.moveToElement(mainMenuPurchaseForms);
@@ -169,6 +173,10 @@ public class HomePage {
 	@Step("Read Product Info from Popup")
 	public ProductDataModel getProductInfoFromPopup() {
 		return new ProductDataModel(getPopupProductTitle(), getPopupProductPrice());
+	}
+	
+	public String compareNotificationAboutFillingForm() {
+		return notificationAboutFillingForm.getText();
 	}
 
 }

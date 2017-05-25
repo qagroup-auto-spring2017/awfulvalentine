@@ -8,6 +8,7 @@ package com.valentine.ViraTarkovska.test;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
+import com.github.javafaker.Faker;
 import com.valentine.app.AwfulValentine;
 import com.valentine.app.ContactUsPage;
 //import com.valentine.app.HomePage;
@@ -20,16 +21,18 @@ public class ContactUsInvalidEmailTest {
 
 	@Test
 	public void testContactUsInvalidEmail() throws InterruptedException {
+		Faker faker = new Faker();
 		/*System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver = new ChromeDriver();*/
 		/*driver = Browser.open();
 		driver.get("http://awful-valentine.com/contact-us/");*/
 		onContactUsPage = AwfulValentine.openContactUsPage();
 		
-		onContactUsPage.populateYourName();
-		onContactUsPage.populateYourEmail();
-		onContactUsPage.populateSubject();
-		onContactUsPage.populateYourMessage();
+		onContactUsPage.contactUsFormPopulating(faker.name().nameWithMiddle(),
+				"aaa",
+				faker.book().title(),
+				faker.shakespeare().hamletQuote());
+		
 //		driver.findElement(By.name("your-name")).sendKeys("Lee R Cyr");
 //		driver.findElement(By.name("your-email")).sendKeys("aaa");
 //		driver.findElement(By.name("your-subject")).sendKeys("Lorem ipsum");

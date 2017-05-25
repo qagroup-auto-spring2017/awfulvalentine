@@ -9,6 +9,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.github.javafaker.Faker;
+
+import ru.yandex.qatools.allure.annotations.Step;
+
 
 public class ContactUsPage {
 			
@@ -21,6 +25,19 @@ public class ContactUsPage {
 	@FindBy(css = "input[name=your-email]+span")
 	private WebElement alertEmailInvalid;
 	
+	@FindBy(name = "your-name")
+	public WebElement yourNameField;
+	
+	@FindBy(name = "your-email")
+	public WebElement yourEmailField;
+	
+	@FindBy(name = "your-subject")
+	public WebElement yourSubjectField;
+	
+	@FindBy(name = "your-message")
+	public WebElement yourMessageField;	
+	
+	
 	
 	private WebDriver driver;
 
@@ -30,7 +47,7 @@ public class ContactUsPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	
+	@Step("Click 'Send'")
 	public void clickSendButton() {
 		driver.findElement(By.cssSelector("p>input[value=Send]")).click();
 //		Wait
@@ -56,22 +73,33 @@ public class ContactUsPage {
 //		return driver.findElement(By.cssSelector("span[class*='your-email']"));
 //	}
 
+		
+//	public void populateYourName() {
+//		Faker faker = new Faker();
+//		driver.findElement(By.name("your-name")).sendKeys(faker.name().nameWithMiddle());		
+//	}
+//
+//	public void populateYourEmail() {
+//		Faker faker = new Faker();
+//		driver.findElement(By.name("your-email")).sendKeys(faker.internet().emailAddress());		
+//	}
+//
+//	public void populateSubject() {
+//		Faker faker = new Faker();
+//		driver.findElement(By.name("your-subject")).sendKeys(faker.lorem().characters());		
+//	}
+//
+//	public void populateYourMessage() {
+//		Faker faker = new Faker();
+//		driver.findElement(By.name("your-message")).sendKeys(faker.shakespeare().hamletQuote());		
+//	}
 	
-	
-	public void populateYourName() {
-		driver.findElement(By.name("your-name")).sendKeys("Lee R Cyr");		
-	}
-
-	public void populateYourEmail() {
-		driver.findElement(By.name("your-email")).sendKeys("aaa");		
-	}
-
-	public void populateSubject() {
-		driver.findElement(By.name("your-subject")).sendKeys("Lorem ipsum");		
-	}
-
-	public void populateYourMessage() {
-		driver.findElement(By.name("your-message")).sendKeys("Vestibulum id velit sit amet nisi sodales dignissim. Nulla mollis elit sit amet nisl ultricies dictum.");		
+	@Step("Populate 'Contact Us' form")
+	public void contactUsFormPopulating(String yourName, String yourEmail, String subject, String yourMessage) {
+		yourNameField.sendKeys(yourName);
+		yourEmailField.sendKeys(yourEmail);
+		yourSubjectField.sendKeys(subject);
+		yourMessageField.sendKeys(yourMessage);		
 	}
 	
 	public String compareEmailInvalidAlert() {
