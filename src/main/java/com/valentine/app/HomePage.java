@@ -18,7 +18,7 @@ import com.valentine.data.ProductDataModel;
 import ru.yandex.qatools.allure.annotations.Attachment;
 import ru.yandex.qatools.allure.annotations.Step;
 
-public class HomePage {
+public class HomePage extends AbstractPage {
 
 	@FindBy(css = ".main-product")
 	private List<WebElement> recentProducts;
@@ -35,9 +35,9 @@ public class HomePage {
 	private WebDriver driver;
 
 	public HomePage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		new WebDriverWait(driver, 10).until(urlToBe("http://awful-valentine.com/"));
-		PageFactory.initElements(driver, this);
 
 		if ("android".equals(System.getProperty("browser"))) {
 			switchToDesktopVersion();
@@ -48,7 +48,7 @@ public class HomePage {
 		try {
 			desktopButton.click();
 		} catch (NoSuchElementException e) {
-//
+			//
 		}
 	}
 
@@ -108,12 +108,6 @@ public class HomePage {
 
 		addToCartPopup.findElement(By.cssSelector("[value='Add to Cart']")).click();
 		return new ShoppingCartPage(driver);
-	}
-
-	@Step("Read current URL")
-	@Attachment("URL")
-	public String getCurrentUrl() {
-		return driver.getCurrentUrl();
 	}
 
 	public ProductDataModel getSpecialOffer(int randomIndex) {

@@ -8,7 +8,6 @@ import java.util.Random;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
-import com.valentine.app.AwfulValentine;
 import com.valentine.app.HomePage;
 import com.valentine.app.ShoppingCartPage;
 import com.valentine.data.ProductDataModel;
@@ -19,20 +18,19 @@ import ru.yandex.qatools.allure.annotations.Stories;
 
 @Features("Shopping")
 @Stories("Add Item to Cart")
-public class AddItemToCartTest {
+public class AddItemToCartTest extends AbstractTest {
 	private HomePage onHomePage;
 	private ShoppingCartPage onShoppingCartPage;
 	private ProductDataModel testItem;
 
 	@Test
 	public void testTheAddCartButtonOpensPopup() {
-		onHomePage = AwfulValentine.openHomePage();
+		onHomePage = awfulValentine.openHomePage();
 
 		int randomIndex = new Random().nextInt(5) + 1;
 		testItem = onHomePage.getSpecialOffer(randomIndex);
 
 		onHomePage.clickAddToCartOnSpecialOffer(randomIndex);
-
 
 		assertTrue(onHomePage.isAddToCartPopupShown(), "'Add to cart' Popup did not appear.");
 
@@ -48,7 +46,7 @@ public class AddItemToCartTest {
 
 	@AfterClass
 	public void tearDown() {
-		AwfulValentine.close();
+		awfulValentine.close();
 	}
 
 	@Step("Product details on Popup should be equal to product details on selected item")

@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Attachment;
 import ru.yandex.qatools.allure.annotations.Step;
 
-public class ShoppingCartPage {
+public class ShoppingCartPage extends AbstractPage {
 
 	@FindBy(id = "continueShopping")
 	private WebElement continueShoppingButton;
@@ -22,9 +22,9 @@ public class ShoppingCartPage {
 	private WebDriver driver;
 
 	public ShoppingCartPage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		new WebDriverWait(driver, 10).until(urlContains("cart"));
-		PageFactory.initElements(driver, this);
 	}
 
 	@Step
@@ -37,11 +37,5 @@ public class ShoppingCartPage {
 	@Attachment("Summary")
 	public String getSummary() {
 		return summary.getText();
-	}
-
-	@Step("Read current URL")
-	@Attachment("URL")
-	public String getCurrentUrl() {
-		return driver.getCurrentUrl();
 	}
 }
