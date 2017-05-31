@@ -8,6 +8,7 @@ import java.util.Random;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
+import com.valentine.app.AddToCartPopup;
 import com.valentine.app.AwfulValentine;
 import com.valentine.app.HomePage;
 import com.valentine.app.ShoppingCartPage;
@@ -23,6 +24,7 @@ public class AddItemToCartTest {
 	private HomePage onHomePage;
 	private ShoppingCartPage onShoppingCartPage;
 	private ProductDataModel testItem;
+	private AddToCartPopup popup;
 
 	@Test
 	public void testTheAddCartButtonOpensPopup() {
@@ -33,10 +35,10 @@ public class AddItemToCartTest {
 
 		onHomePage.clickAddToCartOnSpecialOffer(randomIndex);
 
+		popup = onHomePage.addToCartPopup();
 
-		assertTrue(onHomePage.isAddToCartPopupShown(), "'Add to cart' Popup did not appear.");
-
-		productsShouldBeEqual(onHomePage.getProductInfoFromPopup(), testItem);
+		assertTrue(popup.isDisplayed(), "'Add to cart' Popup did not appear.");
+		productsShouldBeEqual(popup.getProductInfo(), testItem);
 	}
 
 	@Test(dependsOnMethods = "testTheAddCartButtonOpensPopup")
@@ -51,7 +53,7 @@ public class AddItemToCartTest {
 		AwfulValentine.close();
 	}
 
-	@Step("Product details on Popup should be equal to product details on selected item")
+	@Step("Product details on Popup [{0}] should be equal to product details on selected item [{0}]")
 	private void productsShouldBeEqual(ProductDataModel actual, ProductDataModel expected) {
 		String message = "";
 

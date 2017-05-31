@@ -48,7 +48,7 @@ public class HomePage {
 		try {
 			desktopButton.click();
 		} catch (NoSuchElementException e) {
-//
+			//
 		}
 	}
 
@@ -83,30 +83,13 @@ public class HomePage {
 		return this;
 	}
 
-	@Step("Check if 'Add to Cart' Popup is displayed")
-	public boolean isAddToCartPopupShown() {
-		return addToCartPopup.isDisplayed();
-	}
-
-	@Step("Read product title on popup")
-	@Attachment("Product title")
-	public String getPopupProductTitle() {
-		return addToCartPopup.findElement(By.cssSelector(".et_popup_title")).getText();
-	}
-
-	@Step("Read product price on popup")
-	public double getPopupProductPrice() {
-		String priceText = addToCartPopup.findElement(By.cssSelector(".Cart66Price")).getText();
-		priceText = priceText.replaceAll("Price: ", "").replaceAll("\\$", "");
-		return Double.parseDouble(priceText);
+	public AddToCartPopup addToCartPopup() {
+		return new AddToCartPopup(addToCartPopup);
 	}
 
 	@Step("Click 'Add to Cart' button on popup")
 	public ShoppingCartPage clickAddToCartButtonOnPopup() {
-		WebDriverWait driverWait = new WebDriverWait(driver, 10);
-		driverWait.until(visibilityOfElementLocated(By.cssSelector("#fancybox-wrap [value='Add to Cart']")));
-
-		addToCartPopup.findElement(By.cssSelector("[value='Add to Cart']")).click();
+		addToCartPopup().clickAddToCartButton();
 		return new ShoppingCartPage(driver);
 	}
 
@@ -124,11 +107,6 @@ public class HomePage {
 		double unitPrice = Double.parseDouble(unitPriceText.replaceAll("\\$", ""));
 
 		return new ProductDataModel(title, unitPrice);
-	}
-
-	@Step("Read Product Info from Popup")
-	public ProductDataModel getProductInfoFromPopup() {
-		return new ProductDataModel(getPopupProductTitle(), getPopupProductPrice());
 	}
 
 }
