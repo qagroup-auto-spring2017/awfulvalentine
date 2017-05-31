@@ -10,20 +10,23 @@ import org.testng.annotations.Test;
 import com.valentine.app.AwfulValentine;
 import com.valentine.app.HomePage;
 import com.valentine.app.ShoppingCartPage;
+import com.valentine.tools.App;
+import com.valentine.tools.AppTest;
 
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
 @Features("Shopping")
 @Stories("Continue Shopping from Cart page")
-public class ContinueShoppingFromYourCartTest {
+public class ContinueShoppingFromYourCartTest implements AppTest {
 
 	private HomePage onHomePage;
 	private ShoppingCartPage onShoppingCartPage;
+	private AwfulValentine awfulValentine = new AwfulValentine();
 
 	@BeforeClass
 	public void setup() {
-		onShoppingCartPage = AwfulValentine.openHomePage().addToCartSpecialOffer(1);
+		onShoppingCartPage = awfulValentine.openHomePage().addToCartSpecialOffer(1);
 	}
 
 	@Test
@@ -50,7 +53,12 @@ public class ContinueShoppingFromYourCartTest {
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
-		AwfulValentine.close();
+		awfulValentine.close();
+	}
+
+	@Override
+	public App getTestedApp() {
+		return this.awfulValentine;
 	}
 
 }

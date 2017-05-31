@@ -16,17 +16,24 @@ public class Reporter implements IResultListener2 {
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		AwfulValentine.takeScreenshot();
+		Object testClassObject = result.getInstance();
+		if(testClassObject instanceof AppTest)
+			((AppTest) testClassObject).getTestedApp().takeScreenshot();
+//		AwfulValentine.takeScreenshot();
 	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		AwfulValentine.takeScreenshot();
+		Object testClassObject = result.getInstance();
+		if(testClassObject instanceof AppTest)
+			((AppTest) testClassObject).getTestedApp().takeScreenshot();
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		AwfulValentine.takeScreenshot();
+		Object testClassObject = result.getInstance();
+		if(testClassObject instanceof AppTest)
+			((AppTest) testClassObject).getTestedApp().takeScreenshot();
 	}
 
 	@Override

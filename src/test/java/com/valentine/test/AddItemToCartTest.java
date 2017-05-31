@@ -12,6 +12,8 @@ import com.valentine.app.AwfulValentine;
 import com.valentine.app.HomePage;
 import com.valentine.app.ShoppingCartPage;
 import com.valentine.data.ProductDataModel;
+import com.valentine.tools.App;
+import com.valentine.tools.AppTest;
 
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -19,20 +21,20 @@ import ru.yandex.qatools.allure.annotations.Stories;
 
 @Features("Shopping")
 @Stories("Add Item to Cart")
-public class AddItemToCartTest {
+public class AddItemToCartTest implements AppTest {
 	private HomePage onHomePage;
 	private ShoppingCartPage onShoppingCartPage;
 	private ProductDataModel testItem;
+	private AwfulValentine awfulValentine = new AwfulValentine();
 
 	@Test
 	public void testTheAddCartButtonOpensPopup() {
-		onHomePage = AwfulValentine.openHomePage();
+		onHomePage = awfulValentine.openHomePage();
 
 		int randomIndex = new Random().nextInt(5) + 1;
 		testItem = onHomePage.getSpecialOffer(randomIndex);
 
 		onHomePage.clickAddToCartOnSpecialOffer(randomIndex);
-
 
 		assertTrue(onHomePage.isAddToCartPopupShown(), "'Add to cart' Popup did not appear.");
 
@@ -48,7 +50,7 @@ public class AddItemToCartTest {
 
 	@AfterClass
 	public void tearDown() {
-		AwfulValentine.close();
+		awfulValentine.close();
 	}
 
 	@Step("Product details on Popup should be equal to product details on selected item")
@@ -68,6 +70,11 @@ public class AddItemToCartTest {
 		if (!message.equals(""))
 			throw new AssertionError(message);
 
+	}
+
+	@Override
+	public App getTestedApp() {
+		return this.awfulValentine;
 	}
 
 }
