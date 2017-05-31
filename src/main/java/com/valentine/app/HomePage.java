@@ -103,11 +103,12 @@ public class HomePage {
 
 	@Step("Click 'Add to Cart' button on popup")
 	public ShoppingCartPage clickAddToCartButtonOnPopup() {
-		WebDriverWait driverWait = new WebDriverWait(driver, 10);
-		driverWait.until(visibilityOfElementLocated(By.cssSelector("#fancybox-wrap [value='Add to Cart']")));
-
-		addToCartPopup.findElement(By.cssSelector("[value='Add to Cart']")).click();
+		addToCartPopup().addToCart();
 		return new ShoppingCartPage(driver);
+	}
+	
+	public AddToCartPopup addToCartPopup() {
+		return new AddToCartPopup(addToCartPopup);
 	}
 
 	@Step("Read current URL")

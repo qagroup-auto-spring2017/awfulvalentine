@@ -33,10 +33,9 @@ public class AddItemToCartTest {
 
 		onHomePage.clickAddToCartOnSpecialOffer(randomIndex);
 
+		assertTrue(onHomePage.addToCartPopup().isDisplayed(), "'Add to cart' Popup did not appear.");
 
-		assertTrue(onHomePage.isAddToCartPopupShown(), "'Add to cart' Popup did not appear.");
-
-		productsShouldBeEqual(onHomePage.getProductInfoFromPopup(), testItem);
+		productsShouldBeEqual(onHomePage.addToCartPopup().getProductInfoFromPopup(), testItem);
 	}
 
 	@Test(dependsOnMethods = "testTheAddCartButtonOpensPopup")
