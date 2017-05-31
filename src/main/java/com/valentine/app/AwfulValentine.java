@@ -19,7 +19,12 @@ public class AwfulValentine {
 	@Step("Open Home Page by URL: " + BASE_URL)
 	public static HomePage openHomePage() {
 		driver = Browser.open();
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
+		
+		if (!"android".equals(System.getProperty("browser"))) {
+			driver.manage().window().maximize();
+		}
+		
 		driver.get(BASE_URL);
 		return new HomePage(driver);
 	}

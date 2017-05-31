@@ -11,10 +11,13 @@
 
 	<test name="Vira's valentine test" preserve-order="true">
 		<classes>
-			<class name="com.valentine.test.AletrsForYourNameYourEmailTest"></class>
-			<class name="com.valentine.test.CodeDropdownChapter3OpensTest"></class>
-			<class name="com.valentine.test.ContactUsInvalidEmailTest"></class>
-			<class name="com.valentine.test.PurchaseFormsPurchButton_DropTest"></class>
+			<class
+				name="com.valentine.ViraTarkovska.test.AletrsForYourNameYourEmailTest"></class>
+			<class
+				name="com.valentine.ViraTarkovska.test.CodeDropdownChapter3OpensTest"></class>
+			<class name="com.valentine.ViraTarkovska.test.ContactUsInvalidEmailTest"></class>
+			<class
+				name="com.valentine.ViraTarkovska.test.PurchaseFormsPurchButton_DropTest"></class>
 		</classes>
 	</test>
 

@@ -21,7 +21,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class HomePage {
 
 	@FindBy(css = "#top-menu>li:nth-child(2)")
-	private WebElement ñodeInMainMenu;
+	private WebElement codeInMainMenu;
 
 	@FindBy(css = "#top-menu>li:nth-child(2) li:nth-child(3)")
 	private WebElement chapter3;
@@ -66,12 +66,6 @@ public class HomePage {
 		return clickAddToCartButtonOnPopup();
 	}
 
-	/**
-	 * Clicks on 'Add to Cart' button on a special offer found by {@code index}
-	 * 
-	 * @param position
-	 *            1-based position in the list
-	 */
 	@Step("Click 'Add to Cart' button on a special offer number {0}")
 	public HomePage clickAddToCartOnSpecialOffer(int position) {
 		WebElement specialOffer = specialOffers.get(position - 1);
@@ -79,20 +73,12 @@ public class HomePage {
 		return this;
 	}
 
-	// private List<WebElement> specialOffers() {
-	// return driver.findElements(By.cssSelector(".special-item"));
-	// }
-
 	@Step("Click 'Cart' button on a recent product number {0}")
 	public HomePage clickCartOnRecentProduct(int position) {
 		WebElement recentProduct = recentProducts.get(position - 1);
 		recentProduct.findElement(By.cssSelector(".add-to-cart")).click();
 		return this;
 	}
-
-	// private List<WebElement> recentProducts() {
-	// return driver.findElements(By.cssSelector(".main-product"));
-	// }
 
 	@Step("Check if 'Add to Cart' Popup is displayed")
 	public boolean isAddToCartPopupShown() {
@@ -121,10 +107,7 @@ public class HomePage {
 		return new ShoppingCartPage(driver);
 	}
 
-	// private WebElement addToCartPopup() {
-	// return driver.findElement(By.id("fancybox-wrap"));
-	// }
-
+	
 	@Step("Read current URL")
 	@Attachment("URL")
 	public String getCurrentUrl() {
@@ -134,16 +117,10 @@ public class HomePage {
 	@Step("Hover 'Code' item in header main menu and click on 'Chapter 3'")
 	public void hoverCodeInMainMenuClickOnChapter3() {
 		Actions actions = new Actions(driver);
-		actions.moveToElement(ñodeInMainMenu);
+		actions.moveToElement(codeInMainMenu);
 
 		actions.moveToElement(chapter3);
 		actions.click().build().perform();
-	}
-
-	@Step("Read current URL 'Chapter3' page")
-	@Attachment("URL")
-	public String getCurrentUrlChapter3() {
-		return driver.getCurrentUrl();
 	}
 
 	@Step("Hover 'Purchase Forms' item in header main menu and click on '3rd party links'")
@@ -174,7 +151,7 @@ public class HomePage {
 	public ProductDataModel getProductInfoFromPopup() {
 		return new ProductDataModel(getPopupProductTitle(), getPopupProductPrice());
 	}
-	
+
 	public String compareNotificationAboutFillingForm() {
 		return notificationAboutFillingForm.getText();
 	}

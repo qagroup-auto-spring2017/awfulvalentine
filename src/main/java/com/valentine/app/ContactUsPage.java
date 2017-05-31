@@ -8,9 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.github.javafaker.Faker;
-
 import ru.yandex.qatools.allure.annotations.Step;
 
 
@@ -56,43 +53,14 @@ public class ContactUsPage {
 	}
 	
 	//yourNameAlert
-	public String compareYourNameAlert() {
+	public String getYouNameFieldErrorMessage() {
 		return yourNameAlert.getText();
 	}
 	
-//	private WebElement yourNameAlert() {
-//		return driver.findElement(By.cssSelector("span[class*='your-name']"));
-//	}
-	
 	//yourEmailAlert
-	public String compareYourEmailAlert() {
+	public String getYouEmailFieldErrorMessage() {
 		return yourEmailAlert.getText();
 	}
-	
-//	private WebElement yourEmailAlert() {
-//		return driver.findElement(By.cssSelector("span[class*='your-email']"));
-//	}
-
-		
-//	public void populateYourName() {
-//		Faker faker = new Faker();
-//		driver.findElement(By.name("your-name")).sendKeys(faker.name().nameWithMiddle());		
-//	}
-//
-//	public void populateYourEmail() {
-//		Faker faker = new Faker();
-//		driver.findElement(By.name("your-email")).sendKeys(faker.internet().emailAddress());		
-//	}
-//
-//	public void populateSubject() {
-//		Faker faker = new Faker();
-//		driver.findElement(By.name("your-subject")).sendKeys(faker.lorem().characters());		
-//	}
-//
-//	public void populateYourMessage() {
-//		Faker faker = new Faker();
-//		driver.findElement(By.name("your-message")).sendKeys(faker.shakespeare().hamletQuote());		
-//	}
 	
 	@Step("Populate 'Contact Us' form")
 	public void contactUsFormPopulating(String yourName, String yourEmail, String subject, String yourMessage) {
@@ -102,7 +70,7 @@ public class ContactUsPage {
 		yourMessageField.sendKeys(yourMessage);		
 	}
 	
-	public String compareEmailInvalidAlert() {
+	public String getInvalidEmailErrorMessage() {
 		return alertEmailInvalid.getText();
 	}
 	

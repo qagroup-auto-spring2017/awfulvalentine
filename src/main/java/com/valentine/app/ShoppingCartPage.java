@@ -30,17 +30,9 @@ public class ShoppingCartPage {
 		return new HomePage(driver);
 	}
 
-//	private WebElement continueShoppingButton() {
-//		return driver.findElement(By.id("continueShopping"));
-//	}
-
 	public String getSummary() {
 		return summary.getText();
 	}
-
-//	private WebElement summaryElement() {
-//		return driver.findElement(By.id("Cart66WidgetCartEmptyAdvanced"));
-//	}
 
 	public String getCurrentUrl() {
 		return driver.getCurrentUrl();
